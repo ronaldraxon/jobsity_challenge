@@ -1,0 +1,10 @@
+asgiref @ file:///tmp/build/80754af9/asgiref_1625643473416/work
+certifi==2021.5.30
+Django @ file:///tmp/build/80754af9/django_1625585912945/work
+GDAL==3.0.2
+numpy @ file:///D:/bld/numpy_1629092210914/work
+psycopg2==2.9.1
+pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
+sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1624965014186/work
+wincertstore==0.2

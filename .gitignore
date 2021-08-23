@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+trip_analyzer/.idea/
+trip_analyzer/.idea/*
+passwords.txt
+
