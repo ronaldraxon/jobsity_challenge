@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'data_extraction_manager',
+    'data_query_manager',
     'trip_business',
+    'drf_yasg',
     'rest_framework',
 ]
 
@@ -122,7 +124,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -137,5 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-#FILE_UPLOAD_MAX_MEMORY_SIZE = 26214400
+REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication',
+                                                     'rest_framework.authentication.SessionAuthentication'],
+                  'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated']}
