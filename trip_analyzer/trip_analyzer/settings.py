@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'data_extraction_manager',
+    'trip_business',
     'rest_framework',
 ]
 
@@ -135,4 +136,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-Dommy=""
+
+
+#FILE_UPLOAD_MAX_MEMORY_SIZE = 26214400
