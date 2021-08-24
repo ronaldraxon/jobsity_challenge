@@ -12,8 +12,8 @@ from uuid import uuid4
 
 
 class Datasource(models.Model):
-    datasource_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    datasource_name = models.CharField(max_length=50, null=False, default="Unknown",
+    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    name = models.CharField(max_length=50, null=False, default="Unknown",
                                        help_text=mark_safe("<strong>Datasource's canonical name.</strong>"))
 
     def __str__(self):

@@ -1,6 +1,6 @@
 """
 trip_business.models.Trip.py
-==============================
+============================
 Fact table storing trip's data
 """
 

@@ -24,6 +24,10 @@ from django.shortcuts import redirect
 from django.contrib import admin
 from rest_framework import permissions
 
+from trip_business.models.Region import Region
+from trip_business.models.Datasource import Datasource
+from trip_business.models.Trip import Trip
+
 #urlpatterns = [
 #    path('admin/', admin.site.urls),
 #    path('upload/', include('data_extraction_manager.urls')),
@@ -34,7 +38,8 @@ def root_redirect(request):
 
 
 services_urlpatterns = [
-    url(r"^trip_analyzer/data_extraction_manager/", include("data_extraction_manager.urls", namespace="data-extraction-manager-urls"))
+    url(r"^trip_analyzer/data_extraction_manager/", include("data_extraction_manager.urls", namespace="data-extraction-manager-urls")),
+    url(r"^trip_analyzer/trip_business/", include("data_extraction_manager.urls", namespace="trip-business-urls"))
 ]
 
 

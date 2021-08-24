@@ -3,6 +3,7 @@ c4ufb.business.views.BusinessUnitView.py
 ===============================
 Modulo para la visualizacion de los metodos del ATM.
 """
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework.parsers import FileUploadParser
@@ -16,12 +17,19 @@ from django.views.generic.edit import FormView
 from data_extraction_manager.forms.FileUploadForm import FileUploadForm
 from data_extraction_manager.views.Serializers.FileSerializer import FileSerializer
 
+from trip_business.services.RegionService import RegionService
+from trip_business.services.DatasourceService import DatasourceService
+
 
 def handle_uploaded_file(f):
-    #with open('some/file/name.txt', 'wb+') as destination:
-    for chunk in f.chunks():
-        print(chunk)
+    # with open('some/file/name.txt', 'wb+') as destination:
 
+    all_regions = RegionService.get_all_regions_as_dict()
+    all_datasources = DatasourceService.get_all_datasources_as_dict()
+    trips = []
+
+    for chunk in f.chunks():
+        print(chunk.decode('utf-8'))
 
 # def FileUploadView(request):
 #     if request.method == 'POST':
@@ -39,7 +47,6 @@ def handle_uploaded_file(f):
 
 
 class FileUploaderView(FormView):
-
     form_class = FileUploadForm
     template_name = 'FileUpload.html'  # Replace with your template.
 

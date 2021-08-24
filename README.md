@@ -21,9 +21,18 @@
 create an spatial database
 
 conda install -c conda-forge gdal
+conda install -c conda-forge djangorestframework
 
 https://docs.djangoproject.com/en/3.2/ref/contrib/gis/install/postgis/
 
 
 install requirementes postgis
 https://postgis.net/docs/postgis_installation.html#install_requirements
+
+### Create super admin in django
+python manage.py createsuperuser
+
+conda create --name jsc python=3.8
+conda install -c anaconda django
+conda install -c conda-forge gdal
+conda install -c conda-forge djangorestframework
