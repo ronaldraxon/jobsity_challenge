@@ -12,10 +12,7 @@ from data_extraction_manager.views.serializers.FileSerializer import FileSeriali
 from django.conf import settings
 
 class FileCSVView(GenericAPIView):
-    # throttle_classes = ()
-    # permission_classes = ()
     parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.FileUploadParser)
-    # renderer_classes = (renderers.JSONRenderer,)
     serializer_class = FileSerializer
 
     def post(self, request):

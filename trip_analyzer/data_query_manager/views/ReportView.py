@@ -11,9 +11,7 @@ from data_query_manager.views.serializers.ReportBySimilaritiesSerializer import 
 from data_query_manager.services.QueryService import QueryService
 
 
-
 class ReportByPolygonView(generics.GenericAPIView):
-
     serializer_class = PolygonSelectionSerializer
 
     @staticmethod
@@ -23,19 +21,16 @@ class ReportByPolygonView(generics.GenericAPIView):
             201: openapi.Response('Successful request', WeeklyAverageReportSerializer),
             400: openapi.Response('Failed request'),
         }))
-    def get(request):
+    def post(request):
         request_serializer = PolygonSelectionSerializer(data=request.data)
         if request_serializer.is_valid():
-            QueryService.get_weekly_trips_average_by_polygon_selection(request_serializer.data)
-            return Response('Successful request',
-                            status=status.HTTP_201_CREATED)
+            response = QueryService.get_weekly_trips_average_by_polygon_selection(request_serializer.data)
+            return Response(WeeklyAverageReportSerializer(response).data, status=status.HTTP_200_OK)
         else:
             return Response(request_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 class ReportByRegionView(generics.GenericAPIView):
-
     serializer_class = WeeklyAverageReportSerializer
     param = openapi.Parameter('region_name', openapi.IN_PATH,
                               description="The region name to use as a filter to generate the report",
@@ -57,8 +52,8 @@ class ReportByRegionView(generics.GenericAPIView):
         else:
             return Response('Failed request', status=status.HTTP_400_BAD_REQUEST)
 
-class ReportBySimilarCoordinatesAndHourView(generics.GenericAPIView):
 
+class ReportBySimilarCoordinatesAndHourView(generics.GenericAPIView):
     serializer_class = ReportBySimilaritiesSerializer
 
     @staticmethod

@@ -7,7 +7,7 @@ from trip_business.models.Trip import Trip
 from django.conf import settings
 import os
 from datetime import datetime
-from fastavro import writer, reader, parse_schema
+from fastavro import reader
 
 class FileUploadService:
 
@@ -37,11 +37,10 @@ class FileUploadService:
                 region_name = row[0]
                 datasource_name = row[4]
                 region = FileUploadService.create_region_instance(region_name, all_regions)
-                datasource = FileUploadService.create_region_instance(datasource_name, all_datasources)
+                datasource = FileUploadService.create_datasource_instance(datasource_name, all_datasources)
                 trips.append(FileUploadService.create_trip_instance(row[1], row[2], row[3], region, datasource))
                 FileUploadService.trip_bulk_creation(trips)
-            if trips:
-                Trip.objects.bulk_create(trips)
+            FileUploadService.bulk_remaining_trips(trips)
         FileUploadService.delete_temp_file(file_path)
 
     @staticmethod
@@ -53,21 +52,25 @@ class FileUploadService:
                 region_name = record.get("region")
                 datasource_name = record.get("datasource")
                 region = FileUploadService.create_region_instance(region_name, all_regions)
-                datasource = FileUploadService.create_region_instance(datasource_name, all_datasources)
+                datasource = FileUploadService.create_datasource_instance(datasource_name, all_datasources)
                 trips.append(FileUploadService.create_trip_instance(record.get("origin_coord"),
                                                                     record.get("destination_coord"),
                                                                     record.get("datetime"),
                                                                     region, datasource))
                 FileUploadService.trip_bulk_creation(trips)
-            if trips:
-                Trip.objects.bulk_create(trips)
+            FileUploadService.bulk_remaining_trips(trips)
         FileUploadService.delete_temp_file(file_path)
 
     @staticmethod
     def trip_bulk_creation(trips):
         if len(trips) > 100000:
-            Trip.objects.bulk_create(trips)
+            Trip.objects.bulk_create(trips, ignore_conflicts=True)
             trips = []
+
+    @staticmethod
+    def bulk_remaining_trips(trips):
+        if trips:
+            Trip.objects.bulk_create(trips, ignore_conflicts=True)
 
     @staticmethod
     def get_regions_and_datasources():
