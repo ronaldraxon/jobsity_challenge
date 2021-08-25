@@ -36,11 +36,11 @@ conda create --name jsc python=3.8
 conda install -c anaconda django
 conda install -c conda-forge gdal
 conda install -c conda-forge djangorestframework
-
 conda install -c conda-forge django-chunked-upload
 conda install -c conda-forge drf-yasg
 conda install -c conda-forge djangorestframework_simplejwt
-rest_framework_simplejwt
+conda install -c anaconda pandas
+conda install -c conda-forge django-environ
 
 {
   "type": "Polygon",

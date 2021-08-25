@@ -1,23 +1,27 @@
-"""
-data_extraction_manager.services.FileUploadService.py
-=====================================================
-
-"""
 import csv
 from trip_business.services.RegionService import RegionService
 from trip_business.services.DatasourceService import DatasourceService
 from trip_business.models.Region import Region
 from trip_business.models.Datasource import Datasource
 from trip_business.models.Trip import Trip
+from django.conf import settings
 import os
+from datetime import datetime
 
 
 class FileUploadService:
 
     @staticmethod
+    def create_temporal_file_path():
+        return settings.UPLOADED_FILES_PATH + \
+               settings.TEMPORAL_FILE_PREFIX + \
+               str(datetime.now().strftime("%Y-%m-%d_%H_%M_%S")) + \
+               settings.TEMPORAL_FILE_EXTENSION
+
+    @staticmethod
     def handle_uploaded_file(f):
-        # TODO rearrange name of file
-        file_path_name = 'C:/Users/famil/Documents/jobsitychallenge/jobsity_challenge/trip_analyzer/media/csv/temp.csv'
+        file_path_name = FileUploadService.create_temporal_file_path()
+        print("inicio 3")
         with open(file_path_name, 'wb+') as destination:
             for chunk in f.chunks():
                 destination.write(chunk)

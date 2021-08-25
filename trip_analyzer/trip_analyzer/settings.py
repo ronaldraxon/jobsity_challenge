@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import environ
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -137,6 +138,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
+PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
+TEMPORAL_FILE_PREFIX = 'temp_file'
+TEMPORAL_FILE_EXTENSION = '.csv'
+UPLOADED_FILES_PATH = PROJECT_PATH + "\\media\\" + 'temp\\'
+FILES_SCHEMAS_PATH = PROJECT_PATH + "\\media\\" + 'schemas\\'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication',

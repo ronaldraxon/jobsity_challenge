@@ -1,8 +1,3 @@
-"""
-data_extraction_manager.models.File.py
-======================================
-
-"""
 from django.db import models
 
 
