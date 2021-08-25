@@ -11,9 +11,19 @@ class QueryService:
 
     @staticmethod
     def get_weekly_trips_average_by_polygon_selection(poligon_dictionary):
-        print(dict(poligon_dictionary))
-        print(type(dict(poligon_dictionary)))
-        print(GEOSGeometry(str(poligon_dictionary)))
+        polygon = GEOSGeometry(str(poligon_dictionary))
+        print(polygon)
+
+    @staticmethod
+    def get_trip_dates_by_region(region_name):
+        trips_dates = [trips for trips in Trip.objects.filter(region__name=region_name).values("trip_datetime")]
+        dates = []
+        for key in trips_dates:
+            dates.append(key.get("trip_datetime").date())
+        return dates
+
+    def is_valid_region(region_name):
+        return Region.objects.filter(name=region_name).exists()
 
     @staticmethod
     def get_weekly_trips_average_by_region_selection(region_name):
@@ -39,16 +49,7 @@ class QueryService:
             week.append(data.isocalendar()[1])
         return week
 
-    @staticmethod
-    def get_trip_dates_by_region(region_name):
-        trips_dates = [trips for trips in Trip.objects.filter(region__name=region_name).values("trip_datetime")]
-        dates = []
-        for key in trips_dates:
-            dates.append(key.get("trip_datetime").date())
-        return dates
 
-    def is_valid_region(region_name):
-        return Region.objects.filter(name=region_name).exists()
 
     @staticmethod
     def get_aggregated_trips_with_similarities():

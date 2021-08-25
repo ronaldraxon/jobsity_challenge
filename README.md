@@ -40,7 +40,7 @@ conda install -c conda-forge django-chunked-upload
 conda install -c conda-forge drf-yasg
 conda install -c conda-forge djangorestframework_simplejwt
 conda install -c anaconda pandas
-conda install -c conda-forge django-environ
+conda install -c conda-forge fastavro
 
 {
   "type": "Polygon",

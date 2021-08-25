@@ -10,11 +10,11 @@ from trip_business.models.Region import Region
 from trip_business.models.Datasource import Datasource
 from django.utils import timezone
 from django.contrib.gis.geos import GEOSGeometry
-from uuid import uuid4
+from uuid import uuid1
 
 
 class Trip(models.Model):
-    trip_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    #trip_id = models.UUIDField(primary_key=True, editable=False)
     region = models.ForeignKey(Region, on_delete=models.PROTECT, help_text=mark_safe("<strong>Region's uuid.</strong>"))
     _trip_origin_coordinates = models.PointField(help_text=mark_safe("<strong>Tuple representation "
                                                                     "of lat lon of trip origin.</strong>"))
