@@ -147,6 +147,8 @@ UPLOADED_FILES_PATH = PROJECT_PATH + "\\media\\" + 'temp\\'
 FILES_SCHEMAS_PATH = PROJECT_PATH + "\\media\\" + 'schemas\\'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 BULK_SIZE = 100000
+# TODO
+# TO CHANGE THIS PARAMETERS FOR AUTHENTICATION ON SWAGGER
 REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication',
                                                      'rest_framework.authentication.SessionAuthentication'],
                   'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated']}
