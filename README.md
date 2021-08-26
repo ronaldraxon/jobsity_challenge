@@ -74,8 +74,33 @@ DATABASES = {
 
 ### Executing migrations
 
+Now that you have created a database and set the values in the "settings.py file". You can proceed with the migrations. Please use a console to go to the project's folder and activate the specific virtual environment you created before.
+
+```
+conda activate jsc
+```
+
+Then, proceed with the migrations creation
+
+```
+python manage.py makemigrations
+```
+
+and migrate to create the tables on the database
+
+```
+python manage.py migrate
+```
+Now that we have created the tables, lets create a super user to gain access to the application
+
 ### Create super admin in django
+
+Before starting the application, lets create an user to have access.
+
+```
 python manage.py createsuperuser
+```
+Here you have to specify user's name, password and a email address.
 
 ## Using the application
 
