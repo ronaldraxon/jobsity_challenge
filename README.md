@@ -1,9 +1,5 @@
 # Jobsity data ingestion challenge
 
-## Introduction
-
-
-
 ## Instalation Requirements
 
 
@@ -127,12 +123,21 @@ For this project we're using the package drf-yasg to implement swagger functiona
 
 ### File Upload
 
+For data loading purposes, I have posted some testing files on Google Drive:
 https://drive.google.com/drive/folders/1k92P_qPmUTXq5SEHscu40nmPaqGCM0rQ?usp=sharing
 
-* trips.csv: Contains 100 trip records for high demanding testing.
-* coord_trips.csv: Contains 100.000.000 trip records for high demanding testing.
+There you're going to find the following files:
+
+* trips.csv: Contains 100 trip records for high demanding testing(13kb).
+* coord_trips.csv: Contains 100.000.000 trip records for high demanding testing (12.7GB).
 * coord_trips.avro: Contains the same data included in coord_trips.csv (100.000.000 records), but with a considerable amount of compression (390MB).
 
+You can use the endpoint http://127.0.0.1:8000/trip_analyzer/data_extraction_manager/csvfileupload to upload csv files. Nevertheless, for compressed files 
+containing a large amount of data, it is preferred to use avro files. In that case, please use the endpoint http://127.0.0.1:8000/trip_analyzer//data_extraction_manager/avrofileupload.
+
+![FileUpload](https://user-images.githubusercontent.com/10122730/130895012-7b19db37-aaeb-4721-a341-3a5897efb678.PNG)
+
+Keep in mind that you can use the csv endpoint to upload big files, but is not going to perform well in comparison to the avro option.
 
 ### Reports
 
