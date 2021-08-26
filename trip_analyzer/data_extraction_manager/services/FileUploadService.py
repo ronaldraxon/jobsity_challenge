@@ -63,7 +63,7 @@ class FileUploadService:
 
     @staticmethod
     def trip_bulk_creation(trips):
-        if len(trips) > 100000:
+        if len(trips) > settings.BULK_SIZE:
             Trip.objects.bulk_create(trips, ignore_conflicts=True)
             trips = []
 

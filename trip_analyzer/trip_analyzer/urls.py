@@ -44,7 +44,7 @@ schema_view = get_schema_view(
         description="""This is a challenge Project.""",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="support@tripanalyzer.local"),
-        license=openapi.License(name="ON-PREMISE Licence"),
+        license=openapi.License(name="Open License"),
     ),
     public=False,
     permission_classes=(permissions.IsAuthenticated,),
