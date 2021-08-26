@@ -49,8 +49,28 @@ Notice you dont need to follow the instructions on the previous links to execute
 ## Setting the development environment
 
 ### Database creation
+Before you go any further, make sure you have created a database and you have an user with access to that database and permissions to create and drop tables.
+
+![db](https://user-images.githubusercontent.com/10122730/130889567-b08e7d82-2f88-4663-9087-afdab7d9a7e5.PNG)
+
+Also you're going to need the credentials to create a connection (user password), database host address, port and the database name. These will be configured in the next section.
 
 ### Configuring settings.py file
+As you know, is a bad practice to share an explicit configuration on a repository. In this case we're using environment variables to store those sensitive values.
+The configuration you should take care of is the DATABASES dictionary. Here you should set those values you got on the previous section
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USERNAME'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT')
+    }
+}
+```
 
 ### Executing migrations
 
