@@ -95,18 +95,36 @@ Now that we have created the tables, lets create a super user to gain access to 
 
 ### Create super admin in django
 
-Before starting the application, lets create an user to have access.
-
+Before starting the application, lets create an user to have access. 
 ```
 python manage.py createsuperuser
 ```
-Here you have to specify user's name, password and a email address.
+There you have to specify user's name, password and a email address. After you create an user you can run the aplication by typing:
 
+```
+python manage.py runserver
+```
 ## Using the application
+
+
+![admin](https://user-images.githubusercontent.com/10122730/130891890-7c3aa1f6-9ebc-483d-a84e-d36a3e500770.PNG)
+
+http://127.0.0.1:8000/trip_analyzer/swagger/
 
 ### Swagger 
 
+![swagger](https://user-images.githubusercontent.com/10122730/130892390-8368fa0c-efa9-4ee1-a8e8-577d84f951aa.PNG)
+
+
 ### File Upload
+
+https://drive.google.com/drive/folders/1k92P_qPmUTXq5SEHscu40nmPaqGCM0rQ?usp=sharing
+
+trips.csv: Contains 100 trip records for high demanding testing.
+coord_trips.csv: Contains 100.000.000 trip records for high demanding testing.
+coord_trips.avro: Contains the same data included in coord_trips.csv (100.000.000 records), but with a considerable amount of compression (390MB).
+
+
 
 ### Reports
 
