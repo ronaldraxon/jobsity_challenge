@@ -1,6 +1,6 @@
 # Jobsity data ingestion challenge
 
-## Instalation Requirements
+## Installation Requirements
 
 
 * Anaconda (https://www.anaconda.com/)
