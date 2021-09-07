@@ -43,7 +43,7 @@ conda install -c conda-forge drf-yasg=1.20.0
 conda install -c conda-forge djangorestframework_simplejwt=4.4.0
 conda install -c anaconda pandas=1.1.3
 conda install -c conda-forge fastavro=1.4.4
-conda install -c conda-forge gdal=3.0.2
+conda install -c conda-forge gdal=3.3.1
 ```
 
 You can see the requirements for postgis in django and additional installation requirementes on the following links:
