@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rdh^-7g9-8sg(xov3*y5v!&+6o2z4nv%4*6_6i9j86===atj3e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_APP_DEBUG')
+DEBUG = True
 
 # TODO
 # TO CHANGE THIS PARAMETER FOR PRODUCTION ENVIRONMENT
