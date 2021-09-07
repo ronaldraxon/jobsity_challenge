@@ -38,7 +38,7 @@ conda create --name jsc python=3.8
 conda activate jsc
 conda install -c anaconda django=3.1.2
 conda install -c conda-forge djangorestframework=3.12.4
-conda install -c 
+conda install -c conda-forge django-environ
 conda install -c conda-forge drf-yasg=1.20.0
 conda install -c conda-forge djangorestframework_simplejwt=4.4.0
 conda install -c anaconda pandas=1.1.3
