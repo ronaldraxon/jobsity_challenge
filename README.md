@@ -18,7 +18,7 @@ You have to install the previous extension (PostGIS 3.1) on your database before
 conda install -c conda-forge gdal=3.0.2
 ```
 
-You can use the **environment_<your_Os_Here>.yaml** file to create the virtual environment.
+You can use the **environment_<your_Os_Here>.yml** file to create the virtual environment.
 
 ### windows:
 ```
