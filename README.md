@@ -37,12 +37,13 @@ A full list of installation commands (suitable for linux and windows) for your v
 conda create --name jsc python=3.8
 conda activate jsc
 conda install -c anaconda django=3.1.2
-conda install -c conda-forge gdal=3.0.2
 conda install -c conda-forge djangorestframework=3.12.4
+conda install -c 
 conda install -c conda-forge drf-yasg=1.20.0
 conda install -c conda-forge djangorestframework_simplejwt=4.4.0
 conda install -c anaconda pandas=1.1.3
 conda install -c conda-forge fastavro=1.4.4
+conda install -c conda-forge gdal=3.0.2
 ```
 
 You can see the requirements for postgis in django and additional installation requirementes on the following links:
@@ -76,6 +77,29 @@ DATABASES = {
     }
 }
 ```
+
+You can configure environment variables on you virtual environment. Please use the following commands
+to set the database environment variables. Be sure to activate the previous created virtual environment and to set a valid value for each one of the following commands
+
+```
+conda env config vars set DB_NAME=<YOUR-DATABASE-NAME-HERE>
+conda env config vars set DB_USERNAME=<YOUR-DATABASE-USERNAME-NAME-HERE>
+conda env config vars set DB_PASSWORD=<YOUR-DATABASE-PASSWORD-HERE>
+conda env config vars set DB_HOST=<YOUR-DATABASE-HOST-ADDRESS-HERE>
+conda env config vars set DB_PORT=<YOUR-DATABASE-PORT-HERE>
+```
+After you created the varibles please deactivate and activate the virtual environment to make your changes take effect.
+
+```
+conda deactivate
+conda activate jsc
+```
+You can now list your varibles. 
+```
+conda env config vars list
+```
+You're going to see something like this.
+
 
 ### Executing migrations
 
