@@ -18,10 +18,24 @@ You have to install the previous extension (PostGIS 3.1) on your database before
 conda install -c conda-forge gdal=3.0.2
 ```
 
-A full list of installation commands list for your virtual environment will be as follows (all of these using conda as environment and package manager):
+You can use the **environment_<your_Os_Here>.yaml** file to create the virtual environment.
+
+### windows:
+```
+conda env create -f environment_Windows.yml
+```
+
+### Linux:
+```
+conda env create -f environment_Linux.yml
+```
+
+If you experience any problem when creating the virtual environment, you can use the package installation lines. 
+A full list of installation commands (suitable for linux and windows) for your virtual environment will be as follows (all of these using conda as environment and package manager):
 
 ```
 conda create --name jsc python=3.8
+conda activate jsc
 conda install -c anaconda django=3.1.2
 conda install -c conda-forge gdal=3.0.2
 conda install -c conda-forge djangorestframework=3.12.4
@@ -29,11 +43,6 @@ conda install -c conda-forge drf-yasg=1.20.0
 conda install -c conda-forge djangorestframework_simplejwt=4.4.0
 conda install -c anaconda pandas=1.1.3
 conda install -c conda-forge fastavro=1.4.4
-```
-Also, you can use the **environment_<your_Os_Here>.yaml** file to create the virtual environment.
-
-```
-conda env create -f environment.yml
 ```
 
 You can see the requirements for postgis in django and additional installation requirementes on the following links:
