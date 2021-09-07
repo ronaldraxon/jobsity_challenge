@@ -15,22 +15,22 @@
 You have to install the previous extension (PostGIS 3.1) on your database before attempting any creation of a new databse. Also, you have to install the respective packages by including the following command to you package instalation plan:
 
 ```
-conda install -c conda-forge gdal
+conda install -c conda-forge gdal=3.0.2
 ```
 
 A full list of installation commands list for your virtual environment will be as follows (all of these using conda as environment and package manager):
 
 ```
 conda create --name jsc python=3.8
-conda install -c anaconda django
-conda install -c conda-forge gdal
-conda install -c conda-forge djangorestframework
-conda install -c conda-forge drf-yasg
-conda install -c conda-forge djangorestframework_simplejwt
-conda install -c anaconda pandas
-conda install -c conda-forge fastavro
+conda install -c anaconda django=3.1.2
+conda install -c conda-forge gdal=3.0.2
+conda install -c conda-forge djangorestframework=3.12.4
+conda install -c conda-forge drf-yasg=1.20.0
+conda install -c conda-forge djangorestframework_simplejwt=4.4.0
+conda install -c anaconda pandas=1.1.3
+conda install -c conda-forge fastavro=1.4.4
 ```
-Also, you can use the **environment.yaml** file to create the virtual environment.
+Also, you can use the **environment_<your_Os_Here>.yaml** file to create the virtual environment.
 
 ```
 conda env create -f environment.yml
