@@ -99,6 +99,7 @@ You can now list your varibles.
 conda env config vars list
 ```
 You're going to see something like this.
+
 ![environmentvars](https://user-images.githubusercontent.com/10122730/132461031-d7f1ef8d-dc2d-49b0-a4f3-909959b2ff83.PNG)
 
 
@@ -134,6 +135,7 @@ There you have to specify user's name, password and a email address. After you c
 ```
 python manage.py runserver
 ```
+
 ![running](https://user-images.githubusercontent.com/10122730/132461101-d89c9095-1778-4be9-afa0-381b1e7399d9.PNG)
 
 
