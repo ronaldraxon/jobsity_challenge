@@ -15,7 +15,7 @@
 You have to install the previous extension (PostGIS 3.1) on your database before attempting any creation of a new databse. Also, you have to install the respective packages by including the following command to you package instalation plan:
 
 ```
-conda install -c conda-forge gdal=3.0.2
+conda install -c anaconda gdal=3.0.2
 ```
 
 You can use the **environment_<your_Os_Here>.yml** file to create the virtual environment.
@@ -38,12 +38,12 @@ conda create --name jsc python=3.8
 conda activate jsc
 conda install -c anaconda django=3.1.2
 conda install -c conda-forge djangorestframework=3.12.4
-conda install -c conda-forge django-environ
+conda install -c conda-forge django-environ=0.4.5
 conda install -c conda-forge drf-yasg=1.20.0
 conda install -c conda-forge djangorestframework_simplejwt=4.4.0
 conda install -c anaconda pandas=1.1.3
 conda install -c conda-forge fastavro=1.4.4
-conda install -c conda-forge gdal=3.3.1
+conda install -c anaconda gdal=3.0.2
 ```
 
 You can see the requirements for postgis in django and additional installation requirementes on the following links:
@@ -137,6 +137,8 @@ python manage.py runserver
 
 After you start the application, you can use a web browser (Google Chrome or Firefox) and type the following url in the url bar and press enter.
 http://127.0.0.1:8000
+
+
 
 A web page is going to show up, asking for the superuser credentials you just created before. Plase type them to login
 
